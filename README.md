@@ -1,41 +1,51 @@
-📊 Sales Data Analysis: My First Databricks Project
-🌟 Project Overview
-This is my very first mini-project built using Azure Databricks. The goal was to take raw sales data and transform it into meaningful insights using SQL. This project helped me understand the end-to-end workflow of cloud data engineering, from managing workspaces to syncing code with GitHub.
+# 📊 Sales Data Analysis: Azure Databricks Project
 
-🛠️ Tech Stack
-Platform: Databricks
+[![Databricks](https://img.shields.io/badge/Platform-Azure%20Databricks-orange)](https://www.databricks.com/)
+[![SQL](https://img.shields.io/badge/Language-Spark%20SQL-blue)](https://spark.apache.org/sql/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Language: Spark SQL
+## 🌟 Project Overview
+This project is an end-to-end data engineering and analysis workflow built using **Azure Databricks**. The goal was to transform raw, fragmented sales data into actionable business insights by leveraging the **Medallion Architecture** (Bronze, Silver, Gold) and Spark SQL.
 
-Storage: Delta Lake
+This repository demonstrates my ability to manage cloud data workspaces, implement relational schemas, and sync production-ready code via **Databricks Repos**.
 
-Version Control: Git (Databricks Repos)
+---
 
-🔍 Analysis Performed
-I wrote several SQL queries to answer key business questions, including:
+## 🛠️ Tech Stack
+* **Platform:** [Azure Databricks](https://github.com/parinthaokar/salesDashboard)
+* **Engine:** Spark SQL
+* **Storage:** Delta Lake (ACID compliant)
+* **Version Control:** Git Integration (Databricks Repos)
 
-Total Profitability: Calculating margins by joining fact sales with product cost tables.
+---
 
-Customer Insights: Analyzing average sales per customer and order frequency.
+## 🔍 Key Analysis & Business Logic
+Using a series of [SQL Queries](https://github.com/parinthaokar/salesDashboard/tree/main/Queries), I addressed the following business requirements:
 
-Demographics: Identifying order volume across different customer age groups.
+* **Profitability Analysis:** Calculated net margins by performing relational joins between `FactSales` and `DimProductCost`.
+* **Customer Segmentation:** Identified high-value customers based on total spend and order frequency.
+* **Demographic Trends:** Analyzed purchasing patterns across different customer age groups to identify target markets.
+* **Top Performers:** Ranked products and customers to highlight the top 10 revenue drivers.
 
-Top Performers: Finding the top 10 customers by total spend.
+---
 
-📈 Dashboard Highlights
-While the dashboard is a work in progress, it visualizes:
+## 📈 Dashboard Highlights
+The [Dashboards](https://github.com/parinthaokar/salesDashboard/tree/main/Dashboards) section visualizes the processed data to show:
+* **Core KPIs:** Total Revenue, Total Orders, and Profit Margins.
+* **Sales Over Time:** Temporal trends to identify seasonal peaks.
+* **Product Performance:** Category-wise breakdown of sales volume.
 
-Total Orders & Total Profit KPIs.
+---
 
-Orders over time trends.
+## 💡 Key Learnings
+* **Schema Design:** Implemented a Star Schema within a Lakehouse environment.
+* **Data Transformation:** Mastered complex joins and aggregations in Spark SQL.
+* **Collaboration:** Integrated GitHub into the Databricks workflow for version-controlled development.
 
-Product performance metrics.
+---
 
-💡 Key Learnings
-As this was my first time using a Lakehouse environment, I learned how to:
-
-Configure Git Integration: Successfully linked Databricks Repos to GitHub.
-
-Relational Joins: Used SQL to join Fact and Dimension tables in a star schema.
-
-Workspace Management: Organized queries and dashboards within a collaborative environment.
+## 🚀 Getting Started
+1.  **Clone the Repo:** Connect your Databricks workspace to this GitHub repository.
+2.  **Environment:** Ensure you have an active Databricks cluster (Standard or Personal).
+3.  **Data Ingestion:** Upload your sales CSVs to the DBFS (Databricks File System).
+4.  **Execution:** Run the notebooks in the `/Queries` folder to generate the Delta tables.
