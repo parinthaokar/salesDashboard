@@ -1,0 +1,553 @@
+{
+  "datasets": [
+    {
+      "name": "096da292",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "SHOW TABLES; \n",
+        "\n",
+        "DESCRIBE TABLE dim_customers;\n",
+        "DESCRIBE TABLE workspace.salesdb.dim_products; \n",
+        "\n",
+        "SELECT DISTINCT country FROM dim_customers; \n",
+        "\n",
+        "SELECT product_name, category, subcategory FROM dim_products;\n",
+        "\n",
+        "--Total Sales\n",
+        "SELECT SUM(sales_amount) AS Total_Sales FROM fact_sales;\n",
+        "\n",
+        "-- Total Customers\n",
+        "SELECT COUNT(DISTINCT customer_id) AS total_customers FROM dim_customers; \n",
+        "\n",
+        "--Total Orders\n",
+        "SELECT COUNT(DISTINCT order_number) AS total_orders FROM fact_sales; \n",
+        "\n",
+        "--Sales by Product\n",
+        "SELECT c.product_name, SUM(f.sales_amount) FROM dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.product_name ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "--Sales by Category\n",
+        "SELECT c.category, SUM(f.sales_amount) FROM\n",
+        "dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.category ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "-- Orders Over Time\n",
+        "SELECT date_trunc('month',order_date), SUM(sales_amount) FROM fact_sales GROUP BY date_trunc('month',order_date);"
+      ]
+    },
+    {
+      "name": "fcb587fb",
+      "displayName": "Sales by Category",
+      "queryLines": [
+        "SELECT\n",
+        "  c.category,\n",
+        "  SUM(f.sales_amount) AS sales_amount\n",
+        "FROM\n",
+        "  workspace.salesdb.dim_products c\n",
+        "    LEFT JOIN workspace.salesdb.fact_sales f\n",
+        "      ON c.product_key = f.product_key\n",
+        "GROUP BY\n",
+        "  c.category\n",
+        "ORDER BY\n",
+        "  SUM(f.sales_amount) DESC"
+      ]
+    },
+    {
+      "name": "120b91f9",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "SHOW TABLES; \n",
+        "\n",
+        "DESCRIBE TABLE dim_customers;\n",
+        "DESCRIBE TABLE workspace.salesdb.dim_products; \n",
+        "\n",
+        "SELECT DISTINCT country FROM dim_customers; \n",
+        "\n",
+        "SELECT product_name, category, subcategory FROM dim_products;\n",
+        "\n",
+        "--Total Sales\n",
+        "SELECT SUM(sales_amount) AS Total_Sales FROM fact_sales;\n",
+        "\n",
+        "-- Total Customers\n",
+        "SELECT COUNT(DISTINCT customer_id) AS total_customers FROM dim_customers; \n",
+        "\n",
+        "--Total Orders\n",
+        "SELECT COUNT(DISTINCT order_number) AS total_orders FROM fact_sales; \n",
+        "\n",
+        "--Sales by Product\n",
+        "SELECT c.product_name, SUM(f.sales_amount) FROM dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.product_name ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "--Sales by Category\n",
+        "SELECT c.category, SUM(f.sales_amount) FROM\n",
+        "dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.category ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "-- Orders Over Time\n",
+        "SELECT date_trunc('month',order_date) AS month, SUM(sales_amount) FROM fact_sales GROUP BY date_trunc('month',order_date);"
+      ]
+    },
+    {
+      "name": "b63f2fa1",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "SHOW TABLES; \n",
+        "\n",
+        "DESCRIBE TABLE dim_customers;\n",
+        "DESCRIBE TABLE workspace.salesdb.dim_products; \n",
+        "\n",
+        "SELECT DISTINCT country FROM dim_customers; \n",
+        "\n",
+        "SELECT product_name, category, subcategory FROM dim_products;\n",
+        "\n",
+        "--Total Sales\n",
+        "SELECT SUM(sales_amount) AS Total_Sales FROM fact_sales;\n",
+        "\n",
+        "-- Total Customers\n",
+        "SELECT COUNT(DISTINCT customer_id) AS total_customers FROM dim_customers; \n",
+        "\n",
+        "--Total Orders\n",
+        "SELECT COUNT(DISTINCT order_number) AS total_orders FROM fact_sales; \n",
+        "\n",
+        "--Sales by Product\n",
+        "SELECT c.product_name, SUM(f.sales_amount) FROM dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.product_name ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "--Sales by Category\n",
+        "SELECT c.category, SUM(f.sales_amount) FROM\n",
+        "dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.category ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "-- Orders Over Time\n",
+        "SELECT date_trunc('month',order_date) AS month, SUM(sales_amount) FROM fact_sales GROUP BY date_trunc('month',order_date);"
+      ]
+    },
+    {
+      "name": "8f2ac17f",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "SHOW TABLES; \n",
+        "\n",
+        "DESCRIBE TABLE dim_customers;\n",
+        "DESCRIBE TABLE workspace.salesdb.dim_products; \n",
+        "\n",
+        "SELECT DISTINCT country FROM dim_customers; \n",
+        "\n",
+        "SELECT product_name, category, subcategory FROM dim_products;\n",
+        "\n",
+        "--Total Sales\n",
+        "SELECT SUM(sales_amount) AS Total_Sales FROM fact_sales;\n",
+        "\n",
+        "-- Total Customers\n",
+        "SELECT COUNT(DISTINCT customer_id) AS total_customers FROM dim_customers; \n",
+        "\n",
+        "--Total Orders\n",
+        "SELECT COUNT(DISTINCT order_number) AS total_orders FROM fact_sales; \n",
+        "\n",
+        "--Sales by Product\n",
+        "SELECT c.product_name, SUM(f.sales_amount) FROM dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.product_name ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "--Sales by Category\n",
+        "SELECT c.category, SUM(f.sales_amount) FROM\n",
+        "dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.category ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "-- Orders Over Time\n",
+        "SELECT date_trunc('month',order_date) AS month, SUM(sales_amount) FROM fact_sales GROUP BY date_trunc('month',order_date);"
+      ]
+    },
+    {
+      "name": "1cf34ee8",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "--Total Profit\n",
+        "SELECT SUM(f.sales_amount - p.cost) AS total_profit\n",
+        "FROM workspace.salesdb.fact_sales f\n",
+        "JOIN workspace.salesdb.dim_products p ON f.product_key = p.product_key; "
+      ]
+    },
+    {
+      "name": "471ea613",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "-- Orders Over Time\n",
+        "SELECT date_trunc('month',order_date) AS month, SUM(sales_amount) FROM fact_sales GROUP BY date_trunc('month',order_date);"
+      ]
+    },
+    {
+      "name": "4bf01777",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "SELECT COUNT(DISTINCT product_id) FROM workspace.salesdb.dim_products; "
+      ]
+    },
+    {
+      "name": "2c9d3f1c",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "USE CATALOG `workspace`;\n",
+        "USE SCHEMA `salesdb`;\n",
+        "\n",
+        "SHOW TABLES; \n",
+        "\n",
+        "DESCRIBE TABLE dim_customers;\n",
+        "DESCRIBE TABLE workspace.salesdb.dim_products; \n",
+        "\n",
+        "SELECT DISTINCT country FROM dim_customers; \n",
+        "\n",
+        "SELECT product_name, category, subcategory FROM dim_products;\n",
+        "\n",
+        "--Total Sales\n",
+        "SELECT SUM(sales_amount) AS Total_Sales FROM fact_sales;\n",
+        "\n",
+        "-- Total Customers\n",
+        "SELECT COUNT(DISTINCT customer_id) AS total_customers FROM dim_customers; \n",
+        "\n",
+        "--Total Orders\n",
+        "SELECT COUNT(DISTINCT order_number) AS total_orders FROM fact_sales; \n",
+        "\n",
+        "--Sales by Product\n",
+        "SELECT c.product_name, SUM(f.sales_amount) FROM dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.product_name ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "--Sales by Category\n",
+        "SELECT c.category, SUM(f.sales_amount) FROM\n",
+        "dim_products c LEFT JOIN fact_sales f ON c.product_key = f.product_key GROUP BY c.category ORDER BY SUM(f.sales_amount) DESC; \n",
+        "\n",
+        "-- Orders Over Time\n",
+        "SELECT date_trunc('month',order_date) AS month, SUM(sales_amount) FROM fact_sales GROUP BY date_trunc('month',order_date);"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "6e87c723",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "monthly_sales_bar",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "fcb587fb",
+                  "fields": [
+                    {
+                      "name": "sum(sales_amount)",
+                      "expression": "SUM(`sales_amount`)"
+                    },
+                    {
+                      "name": "category",
+                      "expression": "`category`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Sales by Category",
+                "showTitle": true
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(sales_amount)",
+                  "displayName": "Total Sales",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "category",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bf6c0b3a",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "1cf34ee8",
+                  "fields": [
+                    {
+                      "name": "total_profit",
+                      "expression": "`total_profit`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "TOTAL PROFIT",
+                "showTitle": true,
+                "showDescription": true,
+                "description": " "
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "total_profit",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 0
+                    }
+                  },
+                  "rowNumber": 1
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "bbe31735",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "471ea613",
+                  "fields": [
+                    {
+                      "name": "month",
+                      "expression": "`month`"
+                    },
+                    {
+                      "name": "sum(sum(sales_amount))",
+                      "expression": "SUM(`sum(sales_amount)`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Sales Over Time"
+              },
+              "mark": {
+                "layout": "layer"
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(sum(sales_amount))",
+                  "displayName": "sum(sales_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "3d04ae60",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "4bf01777",
+                  "fields": [
+                    {
+                      "name": "count(DISTINCT product_id)",
+                      "expression": "`count(DISTINCT product_id)`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "TOTAL PRODUCTS",
+                "showTitle": true,
+                "showDescription": true,
+                "description": " "
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(DISTINCT product_id)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 0
+                    }
+                  },
+                  "rowNumber": 1
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "80a08e48",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2c9d3f1c",
+                  "fields": [
+                    {
+                      "name": "sum(sum(sales_amount))",
+                      "expression": "SUM(`sum(sales_amount)`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "TOTAL SALES",
+                "showTitle": true,
+                "showDescription": true,
+                "description": " "
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(sum(sales_amount))",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
