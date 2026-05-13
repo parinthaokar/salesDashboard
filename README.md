@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🌟 Project Overview
-This project is an end-to-end data engineering and analysis workflow built using **Azure Databricks**. The goal was to transform raw, fragmented sales data into actionable business insights by leveraging the **Medallion Architecture** (Bronze, Silver, Gold) and Spark SQL.
+This project is an end-to-end data engineering and analysis workflow built using **Azure Databricks**. The goal was to transform raw, fragmented sales data into actionable business insights by leveraging Spark SQL.
 
 This repository demonstrates my ability to manage cloud data workspaces, implement relational schemas, and sync production-ready code via **Databricks Repos**.
 
